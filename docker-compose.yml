@@ -15,16 +15,14 @@ services:
       - DB_HOST=mysql
       - DB_NAME=app_db
       - DB_USER=app_user
-      - DB_PASS=1234
+      - MYSQL_PASSWORD=1234
     networks:
       - db-data-net
     depends_on:
       - mysql
     restart: unless-stopped
   mysql:
-    build:
-      context: .
-      dockerfile: Dockerfile.mysql
+    image: mysql:1.0.0
     container_name: mysql
     ports:
       - "3306:3306"
