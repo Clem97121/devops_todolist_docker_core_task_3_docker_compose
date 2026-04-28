@@ -15,14 +15,14 @@ services:
       - DB_HOST=mysql
       - DB_NAME=app_db
       - DB_USER=app_user
-      - MYSQL_PASSWORD=1234
+      - DB_PASSWORD=1234
     networks:
       - db-data-net
     depends_on:
       - mysql
     restart: unless-stopped
   mysql:
-    image: mysql:1.0.0
+    image: mysql:8.0
     container_name: mysql
     ports:
       - "3306:3306"
